@@ -13,7 +13,7 @@ public class Saving {
 
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static File file;
-    private static File tmpFile;
+    //private static File tmpFile;
 
     private static final String dirs = System.getProperty("user.home") + "\\AppData\\Roaming\\Rainbow Fitness\\";
 
@@ -21,17 +21,13 @@ public class Saving {
      *
      * erstelle Verzeichnis wenn noch nicht vorhanden
      *
-     * @param dir Wo soll das Verzeichnis erstellt werden
-     * @return false wenn Verzeichnis vorhanden; true wenn erstellt
      */
-    private static boolean createDir(String dir) {
+    private static void createDir() {
 
-        File tmp = new File(dir);
+        File tmp = new File(Saving.dirs);
         if (!tmp.exists()) {
             tmp.mkdirs();
-            return true;
         }
-        return false;
     }
 
     /**
@@ -39,9 +35,9 @@ public class Saving {
      */
     private static void createFile() {
 
-        createDir(dirs);
+        createDir();
         file = new File(dirs  + "statList.json");
-        tmpFile = new File("C:\\Users\\domin\\OneDrive\\Desktop\\r6 fit\\statList.json");
+        //File tmpFile = new File("C:\\Users\\domin\\OneDrive\\Desktop\\r6 fit\\statList.json");
     }
 
     /**
